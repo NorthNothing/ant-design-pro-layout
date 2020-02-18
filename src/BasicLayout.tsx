@@ -35,9 +35,9 @@ import WrapContent from './WrapContent';
 
 export interface BasicLayoutProps
   extends Partial<RouterTypes<Route>>,
-    SiderMenuProps,
-    HeaderViewProps,
-    Partial<Settings> {
+  SiderMenuProps,
+  HeaderViewProps,
+  Partial<Settings> {
   /**
    * logo url
    */
@@ -88,6 +88,8 @@ export interface BasicLayoutProps
   isChildrenLayout?: boolean;
 
   className?: string;
+
+  extraRightContent?: React.ReactNode;
 
   /**
    * 兼用 content的 margin
@@ -441,6 +443,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = props => {
               </RouteContext.Provider>
               {footerDom}
             </Layout>
+            {props.extraRightContent}
           </Layout>
         </div>
       </MenuCounter.Provider>
